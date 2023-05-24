@@ -5,37 +5,37 @@ class BudgetManager:
         self.budgets = {}
         self.expenditure = {}
 
-    def add_budget(name, amount):
-        global available
+    def add_budget(self, name, amount):
         
-        if name in budgets:
+        
+        if name in self.budgets:
             raise ValueError ("Budget exists")
         
-        if amount > available:
+        if amount > self.available:
             raise ValueError("Insufficient funds")
         
-        budgets[name] = amount
-        available -= amount
-        expenditure[name] = 0 
-        return available
+        self.budgets[name] = amount
+        self.available -= amount
+        self.expenditure[name] = 0 
+        return self.available
 
-    def spend(name, amount):
-        if name not in expenditure:
+    def spend(self, name, amount):
+        if name not in self.expenditure:
             raise ValueError("No such budget")
-        expenditure[name] += amount
-        budgeted   = budgets[name]
-        spent = expenditure[name]
+        self.expenditure[name] += amount
+        budgeted   = self.budgets[name]
+        spent = self.expenditure[name]
         return budgeted - spent
 
-    def print_summary():
+    def print_summary(self):
         print("Budget           Budgeted       Spent    Remaining")
         print("--------------- ---------- ---------- ----------") 
         total_budgeted =0 
         total_spent = 0
         total_remaining = 0
-        for name in budgets:
-            budgeted = budgets[name]
-            spent = expenditure[name]
+        for name in self.budgets:
+            budgeted = self.budgets[name]
+            spent = self.expenditure[name]
             remaining = budgeted - spent
             print(f'{name:15s} {budgeted:10.2f} {spent:10.2f}' 
                 f'{remaining:10.2f}')
