@@ -7,8 +7,9 @@ This is a simple app that will allow users to keep track of their expenditures a
 
 # How to use this:
 - fork or copy the repo
-- create a csv for the app to generate a gantt chart which will display the task and duration for each task
-- run the module and select your project csv
+- you can use the test file to create an instance of the budgetmanager with an overall budget 
+- add expenditures via the methods included in the budget manager
+- you print summary when you want to get an overall view of your finances
 
 # Here is a look at the app in action:
 
